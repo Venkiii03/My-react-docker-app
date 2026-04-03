@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #FF5C5C;
+  --secondary: #d1f4e3; /* Light green pill */
+  --highlight: #FFB020; /* Orange scribble */
+  --pink-pill: #ffc4e1;
+  --bg-color: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-light: #666;
+  --footer-bg: #d8f2d5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-color);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .title, .logo {
+  font-family: 'Syne', sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-padding { padding: 100px 0; }
+
+/* Custom Text Highlights */
+.pill-green {
+  background-color: var(--secondary);
+  border-radius: 40px;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.pill-pink {
+  background-color: var(--pink-pill);
+  border-radius: 40px;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.underline-orange {
+  position: relative;
+  display: inline-block;
+}
+.underline-orange::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: -5%;
+  width: 110%;
+  height: 6px;
+  background-color: var(--highlight);
+  border-radius: 3px;
+  z-index: -1;
+  transform: rotate(-1deg);
+}
+
+/* Dark Mode Variables */
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-dark: #ffffff;
+  --text-light: #cccccc;
+  --footer-bg: #2d372c;
+  --secondary: #3b5f4d;
+  --pink-pill: #8a5771;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-left.reveal-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-right.reveal-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================
+   Global Hover Colour Flash
+   ============================ */
+section, .project-card, .offer-item, .quote-box {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.offer-item:hover {
+  background-color: #fff8f0;
+  box-shadow: inset 4px 0 0 var(--highlight);
+  padding-left: 16px;
+}
+
+.project-card:hover .project-info h3 {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.quote-box:hover {
+  background-color: #eef7ee;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  transform: scale(1.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+/* ============================
+   Click Ripple Effect
+   ============================ */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 92, 92, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* ============================
+   Extra Animations
+   ============================ */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0px rgba(255,92,92,0); }
+  50%       { box-shadow: 0 0 25px rgba(255,92,92,0.5); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.float-anim {
+  animation: floatUp 4s ease-in-out infinite;
+}
+.spin-slow {
+  animation: spinSlow 10s linear infinite;
+}
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+

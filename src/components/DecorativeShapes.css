@@ -1,0 +1,44 @@
+.deco-dots, .deco-squiggle, .deco-ring {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+}
+
+.deco-dots:hover, .deco-ring:hover {
+  transform: scale(1.2);
+  opacity: 1;
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+.deco-squiggle:hover path {
+  stroke: var(--primary);
+  transition: stroke 0.4s ease;
+}
+
+.deco-ring {
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 15px;
+  opacity: 0.6;
+  transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+}
+.deco-ring:hover {
+  opacity: 1;
+  border-color: var(--primary) !important;
+  transform: scale(1.15) rotate(20deg);
+}
+
+.pattern-float {
+  animation: floatUp 6s infinite alternate ease-in-out;
+}
+
+.deco-squiggle path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawLine 2s forwards ease-out 0.8s;
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}

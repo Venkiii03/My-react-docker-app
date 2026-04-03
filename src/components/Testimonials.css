@@ -1,0 +1,87 @@
+.test-title {
+  font-size: 4rem;
+  margin-bottom: 60px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+.test-canvas {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quote-box {
+  background-color: #f4f6ee;
+  padding: 40px 60px;
+  border-radius: 20px;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: default;
+}
+.quote-box:hover {
+  background-color: #d1f4e3;
+  box-shadow: 0 16px 50px rgba(50, 205, 50, 0.2);
+  transform: scale(1.03);
+}
+.quote-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  position: relative;
+  display: inline;
+}
+
+.quote-text::before {
+  content: '“';
+  font-family: serif;
+  font-size: 3rem;
+  color: #a5bda3;
+  margin-right: 10px;
+  vertical-align: middle;
+  line-height: 0;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.quote-text::after {
+  content: '”';
+  font-family: serif;
+  font-size: 3rem;
+  color: #a5bda3;
+  margin-left: 10px;
+  vertical-align: middle;
+  line-height: 0;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.quote-box:hover .quote-text::before,
+.quote-box:hover .quote-text::after {
+  color: var(--primary);
+}
+
+.t-av {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.t-av:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 8px 24px rgba(255, 92, 92, 0.45);
+  z-index: 10;
+}
+.t-av img { width: 100%; height: 100%; object-fit: cover; }
+
+.av-top-left    { width: 80px;  height: 80px;  top: 10%; left: 15%;  animation: floatUp 4s ease-in-out infinite; }
+.av-mid-left    { width: 50px;  height: 50px;  top: 35%; left: 5%;   animation: floatUp 5.5s ease-in-out infinite 0.7s; }
+.av-large-left  { width: 160px; height: 160px; top: 40%; left: 15%;  animation: floatUp 3.8s ease-in-out infinite 0.3s; }
+.av-bottom-left { width: 70px;  height: 70px;  bottom: 20%; left: 8%; animation: floatUp 4.8s ease-in-out infinite 1.2s; }
+
+.av-top-right   { width: 100px; height: 100px; top: 15%; right: 20%; animation: floatUp 4.3s ease-in-out infinite 0.5s; }
+.av-mid-right   { width: 70px;  height: 70px;  top: 40%; right: 28%; animation: floatUp 5.2s ease-in-out infinite 0.9s; }
+.av-large-right { width: 180px; height: 180px; bottom: 5%; right: 5%; animation: floatUp 3.6s ease-in-out infinite 0.2s; }
